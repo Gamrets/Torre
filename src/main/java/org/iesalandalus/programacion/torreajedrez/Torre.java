@@ -13,23 +13,39 @@ public class Torre {
 		color = Color.NEGRO;
 		posicion = new Posicion(8, 'h');
 	}
-	
-	//Constructor que acepta parametros color
-	
+
+	// Constructor que acepta parametros color
+
 	public Torre(Color color) {
-		
+
 		if (color == Color.BLANCO) {
 			posicion = new Posicion(1, 'h');
 		} else if (color == Color.NEGRO) {
 			posicion = new Posicion(8, 'h');
 		}
-		
+
 		if (color == null) {
 			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
 		}
 	}
-	
-	//Creo metodos Getters y Setters
+
+	// Creo constructor que acepta color y columna inicial
+
+	public Torre(Color color, char columnaInicial) {
+		
+		setColor(color);
+
+		if (columnaInicial != 'a' && columnaInicial != 'h') {
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
+		}
+		if (color == Color.BLANCO) {
+			posicion = new Posicion(1, columnaInicial);
+		} else if (color == Color.NEGRO) {
+			posicion = new Posicion(8, columnaInicial);
+		}
+	}
+
+	// Creo metodos Getters y Setters
 	private void setPosicion(Posicion posicion) {
 
 		this.posicion = posicion;
