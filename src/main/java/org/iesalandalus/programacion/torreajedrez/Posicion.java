@@ -2,34 +2,34 @@ package org.iesalandalus.programacion.torreajedrez;
 
 public class Posicion {
 
-	//Declaro atributos fila y columna
-	
+	// Declaro atributos fila y columna
+
 	private int fila;
 	private char columna;
-	
-	//Creo constructor
-	
-	public Posicion(int fila, char columna){
-		
+
+	// Creo constructor
+
+	public Posicion(int fila, char columna) {
+
 		setFila(fila);
 		setColumna(columna);
 	}
-	
-	//Creo constructor copia
-	
-     public Posicion(Posicion posicion){
-    	 
-    	 if (posicion == null) {
- 			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
- 		}
- 		this.fila = posicion.getFila();
- 		this.columna = posicion.getColumna();
+
+	// Creo constructor copia
+
+	public Posicion(Posicion posicion) {
+
+		if (posicion == null) {
+			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
+		}
+		this.fila = posicion.getFila();
+		this.columna = posicion.getColumna();
 	}
 
-	//Creo metodos setter y getter
-	
+	// Creo metodos setter y getter
+
 	private void setFila(int fila) {
-		
+
 		if (fila < 1 || fila > 8) {
 			throw new IllegalArgumentException("ERROR: Fila no válida.");
 
@@ -52,12 +52,12 @@ public class Posicion {
 
 		}
 	}
-	
+
 	public char getColumna() {
 		return this.columna;
 	}
 
-	//Creo metodos equals y hashCode(de forma automatica)
+	// Creo metodos equals y hashCode(de forma automatica)
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -82,5 +82,10 @@ public class Posicion {
 			return false;
 		return true;
 	}
-	
+
+	// Creo metodo toString
+
+	public String toString() {
+		return "fila=" + fila + ", columna=" + columna;
+	}
 }
