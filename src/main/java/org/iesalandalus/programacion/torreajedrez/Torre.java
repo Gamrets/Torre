@@ -7,6 +7,13 @@ public class Torre {
 	private Color color;
 	private Posicion posicion;
 
+	//Constructor por defecto
+	
+	public Torre() {
+		color = Color.NEGRO;
+		posicion = new Posicion(8, 'h');
+	}
+	
 	
 	//Creo metodos Getters y Setters
 	private void setPosicion(Posicion posicion) {
