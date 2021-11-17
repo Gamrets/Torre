@@ -6,6 +6,14 @@ public class Posicion {
 	
 	private int fila;
 	private char columna;
+	
+	//Creo constructor
+	
+	public Posicion(int fila, char columna){
+		
+		setFila(fila);
+		setColumna(columna);
+	}
 
 	//Creo metodos setter y getter
 	
@@ -37,5 +45,9 @@ public class Posicion {
 	public int getColumna() {
 		return this.columna;
 	}
+	
+	
+	
+	
 
 }
