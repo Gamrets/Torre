@@ -1,9 +1,7 @@
 package org.iesalandalus.programacion.torreajedrez;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import org.iesalandalus.programacion.torreajedrez.Color;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Test;
 
 public class ColorTest {
@@ -12,11 +10,15 @@ public class ColorTest {
 
 	@Test
 	public void nombresValidosColoresCreanColoresValidos() {
+		
 		Color color;
+		
 		color = Color.BLANCO;
-		assertThat(ERROR_COLOR_NO_VALIDO, color, is(Color.BLANCO));
-		color = Color.NEGRO;
-		assertThat(ERROR_COLOR_NO_VALIDO, color, is(Color.NEGRO));
+		assertThat(ERROR_COLOR_NO_VALIDO, color,  equalTo(Color.BLANCO));
+		
+		color = Color.NEGRO;		
+		assertThat(ERROR_COLOR_NO_VALIDO, color, equalTo(Color.NEGRO));
+		
 	}
 
 }

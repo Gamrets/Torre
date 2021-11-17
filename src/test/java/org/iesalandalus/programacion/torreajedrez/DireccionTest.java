@@ -3,7 +3,6 @@ package org.iesalandalus.programacion.torreajedrez;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.iesalandalus.programacion.torreajedrez.Direccion;
 import org.junit.Test;
 
 public class DireccionTest {
@@ -12,9 +11,12 @@ public class DireccionTest {
 
 	@Test
 	public void nombresValidosDireccionesCreanDireccionesValidas() {
+		
 		Direccion direccion;
-		direccion = Direccion.ARRIBA;
+		
+		direccion = Direccion.ARRIBA;		
 		assertThat(ERROR_DIRECCION_NO_VALIDA, direccion, is(Direccion.ARRIBA));
+		
 		direccion = Direccion.ABAJO;
 		assertThat(ERROR_DIRECCION_NO_VALIDA, direccion, is(Direccion.ABAJO));
 		direccion = Direccion.IZQUIERDA;
