@@ -71,6 +71,62 @@ public class Torre {
 		return this.color;
 	}
 
+	// Metodo para enrocar
+
+	public void enrocar(Direccion direccion) throws OperationNotSupportedException {
+
+		switch (direccion) {
+		case ENROQUE_CORTO: {
+			if (color == Color.BLANCO) {
+
+				if (posicion.getFila() == 1 && posicion.getColumna() == 'h') {
+
+					setPosicion((new Posicion(posicion.getFila(), 'f')));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+
+			} else {
+
+				if (posicion.getFila() == 8 && posicion.getColumna() == 'h') {
+
+					setPosicion((new Posicion(8, posicion.getColumna())));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+			}
+
+			break;
+		}
+
+		case ENROQUE_LARGO: {
+
+			if (color == Color.BLANCO) {
+				if (posicion.getFila() == 1 && posicion.getColumna() == 'a') {
+
+					setPosicion((new Posicion(posicion.getFila(), 'd')));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+
+			} else {
+
+				if (posicion.getFila() == 8 && posicion.getColumna() == 'd') {
+
+					setPosicion((new Posicion(8, posicion.getColumna())));
+				} else {
+					throw new OperationNotSupportedException("ERROR: Movimiento de enroque no válido.");
+				}
+
+			}
+			break;
+		}
+
+		default:
+		}
+	}
+
+	//Metodo de movimiento
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
 
 		if (pasos <= 0) {
