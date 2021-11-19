@@ -64,6 +64,21 @@ public class MainApp {
 			
 			return Color.NEGRO;
 		}
+	}
+
+	// metodo para elegir columna inicial
+
+	private char elegirColumnaInicial() {
+
+		char opcionColumnaInicial;
+		do {
+			System.out.print("Introduce la columna inicial (a o h): ");
+
+			opcionColumnaInicial = Entrada.caracter();
+
+		} while (opcionColumnaInicial != 'a' && opcionColumnaInicial != 'h');
+
+		return opcionColumnaInicial;
 
 	}
 
