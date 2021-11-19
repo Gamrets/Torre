@@ -16,6 +16,17 @@ public class MainApp {
 		}
 	}
 	
+	//Creo metodo para mostrar Menu de operaciones
+	
+	private void mostrarMenu(){
+		
+		System.out.println("1. Crear torre por defecto");
+		System.out.println("2. Crear torre de un color");
+		System.out.println("3. Crear torre de un color en una columna inicial dada");
+		System.out.println("4. Mover torre");
+		System.out.println("5. Salir");
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("kk");
 	}
