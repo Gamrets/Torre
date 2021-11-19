@@ -130,6 +130,14 @@ public class MainApp {
 		}
 		return direccion;
 	}
+	
+	//Metodo para crear torre por defecto
+	
+	private void crearTorreDefecto() {
+		
+		torre = new Torre();
+	}
+	
 
 	public static void main(String[] args) {
 		System.out.println("kk");
