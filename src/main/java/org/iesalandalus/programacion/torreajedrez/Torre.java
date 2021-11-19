@@ -20,21 +20,27 @@ public class Torre {
 
 	public Torre(Color color) {
 
+		if (color == null) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}
+		setColor(color);
+		
 		if (color == Color.BLANCO) {
 			posicion = new Posicion(1, 'h');
 		} else if (color == Color.NEGRO) {
 			posicion = new Posicion(8, 'h');
 		}
 
-		if (color == null) {
-			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
-		}
 	}
 
 	// Creo constructor que acepta color y columna inicial
 
 	public Torre(Color color, char columnaInicial) {
 
+		if (color == null) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}
+		
 		setColor(color);
 
 		if (columnaInicial != 'a' && columnaInicial != 'h') {
@@ -74,6 +80,11 @@ public class Torre {
 	// Metodo para enrocar
 
 	public void enrocar(Direccion direccion) throws OperationNotSupportedException {
+		
+		if (direccion == null) {
+
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
+		}
 
 		switch (direccion) {
 		case ENROQUE_CORTO: {
@@ -126,64 +137,57 @@ public class Torre {
 		}
 	}
 
-	//Metodo de movimiento
+	// Metodo de movimiento
+	
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
-
+		if (direccion == null) {
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
+		}
 		if (pasos <= 0) {
 			throw new IllegalArgumentException("ERROR: El número de pasos debe ser positivo.");
 		}
-
-		if (direccion == null) {
-
-			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
-		}
-
 		try {
-
 			switch (direccion) {
-
-			case ARRIBA: {
+			
+			case ARRIBA:
 				if (color == Color.BLANCO) {
 					setPosicion(new Posicion(posicion.getFila() + pasos, posicion.getColumna()));
 				} else {
 					setPosicion(new Posicion(posicion.getFila() - pasos, posicion.getColumna()));
 				}
 				break;
-			}
-			case ABAJO: {
-				if (color == Color.NEGRO) {
+				
+			case ABAJO:
+				
+				if (color == Color.BLANCO) {
 					setPosicion(new Posicion(posicion.getFila() - pasos, posicion.getColumna()));
 				} else {
 					setPosicion(new Posicion(posicion.getFila() + pasos, posicion.getColumna()));
 				}
 				break;
-			}
-			case IZQUIERDA: {
+				
+			case IZQUIERDA:
+				
 				if (color == Color.BLANCO) {
-
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() - pasos)));
 				} else {
-
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() + pasos)));
 				}
 				break;
-			}
-			case DERECHA: {
+				
+			case DERECHA:
 				if (color == Color.BLANCO) {
-
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() + pasos)));
 				} else {
-
 					setPosicion(new Posicion(posicion.getFila(), (char) (posicion.getColumna() - pasos)));
 				}
 				break;
-			}
+				
 			default:
 			}
 		} catch (IllegalArgumentException e) {
 			throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 		}
-
 	}
 
 	//metodos hashCode y equal automaticos
@@ -214,6 +218,14 @@ public class Torre {
 			return false;
 		return true;
 	}
+
+	//Creo metodo toString
+	@Override
+	public String toString() {
+		return posicion + ", " + "color=" + color;
+	}
+	
+	
 	
 	
 	
