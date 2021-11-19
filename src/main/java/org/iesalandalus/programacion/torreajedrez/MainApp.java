@@ -44,8 +44,28 @@ public class MainApp {
 		return opcion;
 
 	}
-	
-	
+
+	// Metodo para elegir color
+
+	private Color elegirColor() {
+
+		int opcionColor;
+		do {
+			
+			System.out.print("Elige color:1->blanco, 2->negro: ");
+			opcionColor = Entrada.entero();
+			
+		} while (opcionColor < 1 && opcionColor > 2);
+
+		if (opcionColor == 1) {
+			
+			return Color.BLANCO;
+		} else {
+			
+			return Color.NEGRO;
+		}
+
+	}
 
 	public static void main(String[] args) {
 		System.out.println("kk");
