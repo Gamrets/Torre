@@ -138,6 +138,13 @@ public class MainApp {
 		torre = new Torre();
 	}
 	
+	//Metodo para crear torre en colo
+	private void crearTorreColor() {
+		
+		Color color = elegirColor();
+		torre = new Torre(color);
+	}
+	
 
 	public static void main(String[] args) {
 		System.out.println("kk");
