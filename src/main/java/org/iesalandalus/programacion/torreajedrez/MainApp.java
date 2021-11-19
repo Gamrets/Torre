@@ -1,4 +1,5 @@
 package org.iesalandalus.programacion.torreajedrez;
+import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
 	
@@ -27,6 +28,25 @@ public class MainApp {
 		System.out.println("5. Salir");
 	}
 	
+	
+	//Metodo para elegir opcion
+	
+	private int elegirOpcion() {
+
+		int opcion = 0;
+
+		do {
+			System.out.println("Elige la opción: ");
+			opcion = Entrada.entero();
+
+		} while (opcion < 1 && opcion > 5);
+
+		return opcion;
+
+	}
+	
+	
+
 	public static void main(String[] args) {
 		System.out.println("kk");
 	}
