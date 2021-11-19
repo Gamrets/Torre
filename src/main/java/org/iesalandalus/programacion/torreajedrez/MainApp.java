@@ -145,7 +145,13 @@ public class MainApp {
 		torre = new Torre(color);
 	}
 	
-
+	private void crearTorreColoColumna() {
+		
+		Color color = elegirColor();
+		char columnaIncial = elegirColumnaInicial();
+		torre = new Torre(color,columnaIncial);
+	}
+	
 	public static void main(String[] args) {
 		System.out.println("kk");
 	}
