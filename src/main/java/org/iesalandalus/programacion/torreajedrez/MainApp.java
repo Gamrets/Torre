@@ -156,7 +156,7 @@ public class MainApp {
 	
 	//Metodo para mover la torre
 	
-	private static void mover() throws OperationNotSupportedException {
+	private  void mover() throws OperationNotSupportedException {
 		if (torre == null) {
 			System.out.println("Debes crear una torre antes de moverla.");
 
@@ -178,6 +178,34 @@ public class MainApp {
 					System.out.println("Se realizo enroque largo.");
 				}		
 			
+		}
+	}
+	
+	//metodo para ejecutar opcion
+	
+	private void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
+		switch (opcion) {
+		case 1:
+
+			crearTorreDefecto();
+			break;
+		case 2:
+
+			crearTorreColor();
+			break;
+		case 3:
+
+			crearTorreColoColumna();
+			break;
+		case 4:
+
+			mover();
+			break;
+		case 5:
+			salir = true;
+			break;
+		default:
+			break;
 		}
 	}
 	
