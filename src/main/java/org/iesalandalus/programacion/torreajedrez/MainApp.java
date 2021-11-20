@@ -11,7 +11,7 @@ public class MainApp {
 	
 	//Creando metodo para mostrar Torre
 	
-	private void mostrarTorre() {
+	private static void mostrarTorre() {
 		
 		if(torre != null && salir == false) {
 			
@@ -21,7 +21,7 @@ public class MainApp {
 	
 	//Creo metodo para mostrar Menu de operaciones
 	
-	private void mostrarMenu(){
+	private static void mostrarMenu(){
 		
 		System.out.println("1. Crear torre por defecto");
 		System.out.println("2. Crear torre de un color");
@@ -33,7 +33,7 @@ public class MainApp {
 	
 	//Metodo para elegir opcion
 	
-	private int elegirOpcion() {
+	private static int elegirOpcion() {
 
 		int opcion = 0;
 
@@ -49,7 +49,7 @@ public class MainApp {
 
 	// Metodo para elegir color
 
-	private Color elegirColor() {
+	private static Color elegirColor() {
 
 		int opcionColor;
 		do {
@@ -70,7 +70,7 @@ public class MainApp {
 
 	// metodo para elegir columna inicial
 
-	private char elegirColumnaInicial() {
+	private static char elegirColumnaInicial() {
 
 		char opcionColumnaInicial;
 		do {
@@ -135,19 +135,19 @@ public class MainApp {
 	
 	//Metodo para crear torre por defecto
 	
-	private void crearTorreDefecto() {
+	private static void crearTorreDefecto() {
 		
 		torre = new Torre();
 	}
 	
 	//Metodo para crear torre en colo
-	private void crearTorreColor() {
+	private static void crearTorreColor() {
 		
 		Color color = elegirColor();
 		torre = new Torre(color);
 	}
 	
-	private void crearTorreColoColumna() {
+	private static void crearTorreColoColumna() {
 		
 		Color color = elegirColor();
 		char columnaIncial = elegirColumnaInicial();
@@ -156,7 +156,7 @@ public class MainApp {
 	
 	//Metodo para mover la torre
 	
-	private  void mover() throws OperationNotSupportedException {
+	private static  void mover() throws OperationNotSupportedException {
 		if (torre == null) {
 			System.out.println("Debes crear una torre antes de moverla.");
 
@@ -183,7 +183,7 @@ public class MainApp {
 	
 	//metodo para ejecutar opcion
 	
-	private void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
+	private static void ejecutarOpcion(int opcion) throws OperationNotSupportedException {
 		switch (opcion) {
 		case 1:
 
@@ -210,9 +210,15 @@ public class MainApp {
 	}
 	
 	
-	
-	public static void main(String[] args) {
-		System.out.println("kk");
+	//metodo main
+	public static void main(String[] args) throws OperationNotSupportedException {
+		do {
+			mostrarMenu();
+			ejecutarOpcion(elegirOpcion());
+			mostrarTorre();
+		} while (!salir);
+		System.out.println("Se acabo.");
+
 	}
 
 }
