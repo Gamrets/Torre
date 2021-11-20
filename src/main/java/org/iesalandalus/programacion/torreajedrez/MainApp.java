@@ -1,4 +1,6 @@
 package org.iesalandalus.programacion.torreajedrez;
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
@@ -151,6 +153,35 @@ public class MainApp {
 		char columnaIncial = elegirColumnaInicial();
 		torre = new Torre(color,columnaIncial);
 	}
+	
+	//Metodo para mover la torre
+	
+	private static void mover() throws OperationNotSupportedException {
+		if (torre == null) {
+			System.out.println("Debes crear una torre antes de moverla.");
+
+			return;
+		}
+		mostrarMenuDirecciones();
+		Direccion direccion = elegirDireccion();
+		
+		if (direccion != Direccion.ENROQUE_CORTO && direccion != Direccion.ENROQUE_LARGO) {
+			System.out.print("¿Cuántos pasos quieres que dé la torre?: ");
+			int pasos = Entrada.entero();
+				torre.mover(direccion, pasos);
+		} else {
+			
+				torre.enrocar(direccion);
+				if (direccion == Direccion.ENROQUE_CORTO ) {
+				System.out.println("Se realizo enroque corto.");
+				} else {
+					System.out.println("Se realizo enroque largo.");
+				}		
+			
+		}
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		System.out.println("kk");
